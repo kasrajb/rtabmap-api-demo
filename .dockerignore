@@ -1,0 +1,18 @@
+# Ignore directories
+.git
+.vscode
+__pycache__
+data
+
+# Ignore files
+*.pyc
+*.log
+*.db
+Dockerfile
+docker-compose.yml
+README.md
+API_Commands.txt
+payload.json
+output.txt
+backup_app_with_wayfinder.py
+backup_app_without_wayfinder.py

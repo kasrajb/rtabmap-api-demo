@@ -1,0 +1,24 @@
+services:
+  rtabmap-core:
+    image: introlab3it/rtabmap:focal    # Use the RTAB-Map focal image for core functionality
+    container_name: rtabmap-core       # Name the container for easy identification
+    volumes:
+      - ./data:/data:rw               # Mount the local "data" directory as read-write
+    command: ["tail", "-f", "/dev/null"]  # Keep the container running idle
+
+  rtabmap-api:
+    build:
+      context: .                      # Build the API container from the current directory
+      dockerfile: Dockerfile          # Specify the Dockerfile for building the image
+    container_name: rtabmap-api       # Name the container for the API
+    ports:
+      - "8000:8000"                  # Map port 8000 on the host to port 8000 in the container
+    volumes:
+      - .:/app                       # Mount the current directory to /app in the container
+      - ./data:/data:rw              # Mount the local "data" directory as read-write
+    environment:
+      - DATA_DIR=/data               # Set the data directory environment variable
+    command: python3 -m uvicorn app:app --host 0.0.0.0 --port 8000 --reload --reload-dir /app  # Start the FastAPI app with live reload
+    depends_on:
+      - rtabmap-core                 # Ensure the core container starts before the API container
+    user: root                       # Run the container as the root user

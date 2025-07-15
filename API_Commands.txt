@@ -1,0 +1,44 @@
+# Navigate to the project directory
+cd C:\rtabmap-api-demo
+
+# Start the Docker containers in detached mode
+# Use this command to launch the system
+# Ensure Docker is installed and running
+docker compose up -d
+
+# Check the status of the running containers
+# Use this to verify if the containers are active
+# Look for the "rtabmap-api" container in the list
+docker compose ps
+
+# Health check endpoint
+# Use this to confirm the API is running and accessible
+curl http://localhost:8000/health
+
+# Localize using an image file and database name
+# Use this command to send a localization request with an image and database
+# Replace "test2.jpg" and "250228-125714.db" with your own file and database
+curl.exe -X POST -F "image=@data\test\test2.jpg" -F "db_name=250228-125714.db" http://localhost:8000/localize
+
+# Localize using another image file and database name
+# Similar to the previous command, but with different inputs
+# Replace "118.jpg" and "250218-065701.db" with your own file and database
+curl -X POST "http://localhost:8000/localize" `
+  -F "image=@data\test\118.jpg" `
+  -F "db_name=250218-065701.db"
+
+# View logs for the "rtabmap-api" container
+# Use this to debug issues or monitor activity
+# "--since 1m" shows logs from the last minute
+docker compose logs --since 1m rtabmap-api
+
+# Rebuild and recreate containers
+# Use this command if you make changes to the code or Docker configuration
+# It forces a rebuild and recreates the containers
+# Note: Changes are automatically applied; you don't need to use this command every time
+docker compose up -d --build --force-recreate
+
+# Stop and remove all containers
+# Use this command to shut down the system when done
+# This will stop and remove all running containers
+After done: docker compose down

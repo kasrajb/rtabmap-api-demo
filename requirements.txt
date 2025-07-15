@@ -1,0 +1,17 @@
+# FastAPI framework for building APIs
+fastapi
+
+# Uvicorn ASGI server for running FastAPI applications
+uvicorn
+
+# Python dotenv for managing environment variables
+python-dotenv
+
+# Python multipart for handling file uploads
+python-multipart
+
+# HTTPX library for making HTTP requests
+httpx
+
+# Pytest framework for testing Python code
+pytest
