@@ -1,5 +1,7 @@
 # RTAB-Map Localization API
 
+[RTABMap API Demo](https://github.com/kasrajb/rtabmap-api-demo)
+
 This project provides a containerized RESTful API (built with FastAPI in Python 3.8) to perform image localization using RTAB-Map’s command-line tool and direct database access. The API accepts an input image and a pre-built RTAB-Map database (map) and returns the 6-DoF pose (x, y, z, roll, pitch, yaw) of the image within that map. Additionally, it integrates with the Wayfinder system to update coordinates.
 
 ## Features
@@ -105,3 +107,48 @@ docker-compose down
 - Enhance security measures for production deployment.
 - Implement real-time localization using streaming data.
 - Add support for additional RTAB-Map parameters and configurations.
+
+---
+
+## How to Set Up the System
+
+1. **Clone the Repository**:
+   Open a terminal and run the following command:
+   ```bash
+   git clone https://github.com/kasrajb/rtabmap-api-demo.git
+   ```
+
+2. **Navigate to the Repository**:
+   ```bash
+   cd rtabmap-api-demo
+   ```
+
+3. **Install Dependencies**:
+   Follow the instructions provided in the repository to install any required dependencies.
+
+---
+
+## How to Update the System
+
+1. **Pull the Latest Changes**:
+   Each time the code is updated, run the following command to fetch and merge the latest changes:
+   ```bash
+   git pull origin main
+   ```
+   Replace `main` with the name of the default branch if it's different.
+
+2. **No Need to Rebuild**:
+   Updates are automatically applied, and there is no need to rebuild the system unless major changes are made to the container or dependencies.
+
+---
+
+## If You Make Changes
+
+1. **Commit and Push Changes**:
+   After making changes, use the following commands to commit and push them to the repository:
+   ```bash
+   git add .
+   git commit -m "Description of changes"
+   git push origin main
+   ```
+
