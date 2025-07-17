@@ -93,20 +93,8 @@ docker-compose down
   - `docker-compose.yml` and `Dockerfile`: Containerization setup.
   - `requirements.txt`: Python dependencies.
 
-- **Testing:**
-  - Use the provided test images in `data/test/` for localization testing.
-  - Ensure the database files in `data/database/` are accessible and correctly formatted.
-
 - **Logs:**
   - Application logs are stored in `LogF.txt` and `LogI.txt` for debugging and monitoring purposes.
-
-## Future Improvements
-
-- Add more endpoints for advanced RTAB-Map functionalities.
-- Optimize database queries for larger datasets.
-- Enhance security measures for production deployment.
-- Implement real-time localization using streaming data.
-- Add support for additional RTAB-Map parameters and configurations.
 
 ---
 
@@ -139,16 +127,4 @@ docker-compose down
 
 2. **No Need to Rebuild**:
    Updates are automatically applied, and there is no need to rebuild the system unless major changes are made to the container or dependencies.
-
----
-
-## If You Make Changes
-
-1. **Commit and Push Changes**:
-   After making changes, use the following commands to commit and push them to the repository:
-   ```bash
-   git add .
-   git commit -m "Description of changes"
-   git push origin main
-   ```
 
